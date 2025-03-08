@@ -4,10 +4,65 @@
  */
 package MariaLeon.base;
 
+import java.util.List;
+
 /**
  *
  * @author Maria liz
  */
 public class Cuartel {
+    private String codigo;
+    private String nombre;
+    private String direccion;
+    private int capacidad;
+    private List<UnidadMilitar> unidadesAlojadas;
+
+    public Cuartel(String codigo, String nombre, String direccion, int capacidad) {
+        this.codigo = codigo;
+        this.nombre = nombre;
+        this.direccion = direccion;
+        this.capacidad = capacidad;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public int getCapacidad() {
+        return capacidad;
+    }
+
+    public void setCapacidad(int capacidad) {
+        this.capacidad = capacidad;
+    }
+
+    public List<UnidadMilitar> getUnidadesAlojadas() {
+        return unidadesAlojadas;
+    }
+
+    public void setUnidadesAlojadas(List<UnidadMilitar> unidadesAlojadas) {
+        this.unidadesAlojadas = unidadesAlojadas;
+    }
+    
     
 }

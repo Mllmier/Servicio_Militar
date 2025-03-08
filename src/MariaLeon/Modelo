@@ -1,4 +1,3 @@
-
 @startuml
 
 Class UnidadMilitar {
@@ -10,7 +9,10 @@ Class UnidadMilitar {
     -String objetivo;
     -String mision;
     -Soldado soldadoDirigente;
+    -String tipoUnidad;
     -List<UnidadMilitar> subUnidades;
+
+    +obtenerDetalles(): String
 }
 
 Class Cuartel {
@@ -22,142 +24,157 @@ Class Cuartel {
 }
 
 Class Soldado {
-    -DocumentoIdentidad documentoIdentidad
-    -String codigoMilitar
-    -NombreCompleto nombreCompleto
-    -Date fechaNacimiento
-    -int edad
-    -String genero
-    -double alturaInicial
-    -double pesoInicial
-    -String direccion
-    -String telefono
-    -String email
-    -Rango rango
-    -CuerpoMilitar cuerpoMilitar
-    -Soldado superior
-    -List<ContactoEmergencia> contactosEmergencia
+    -DocumentoIdentidad documentoIdentidad;
+    -String codigoMilitar;
+    -String nombre;
+    -String apellido;
+    -Date fechaNacimiento;
+    -int edad;
+    -String genero;
+    -double alturaInicial;
+    -double pesoInicial;
+    -String direccion;
+    -String telefono;
+    -String email;
+    -Rango rango;
+    -CuerpoMilitar cuerpoMilitar;
+    -Soldado superior;
+    -List<ContactoEmergencia> contactosEmergencia;
+    -List<UnidadMilitar> unidadesAsignadas;
+
+    +obtenerDetalles(): String;
 }
 
 Class Rango {
-    -String codigo
-    -String nombre
-    -String descripcion
-    -String insignia
-    -String linea
-    -int tiempoMinAscenso
-    -List<CriterioAscenso> criteriosAscenso
-    -CuerpoMilitar cuerpoMilitar
-    -Rango rangoSuperior
+    -String codigo;
+    -String nombre;
+    -String descripcion;
+    -String insignia;
+    -String linea;
+    -int tiempoMinAscenso;
+    -List<CriterioAscenso> criteriosAscenso;
+    -CuerpoMilitar cuerpoMilitar;
+    -Rango rangoSuperior;
 }
 
 Class CuerpoMilitar {
-    -String codigo
-    -String nombre
-    -String descripcion
-    -String estructuraMando
+    -String codigo;
+    -String nombre;
+    -String descripcion;
+    -String estructuraMando;
 }
 
 Class DocumentoIdentidad {
-    -String numero
-    -String tipo
-    -Date fechaExpedicion
-    -String lugarExpedicion
-    -String tipoSangre
+    -String numero;
+    -String tipo;
+    -Date fechaExpedicion;
+    -String lugarExpedicion;
+    -String tipoSangre;
 }
 
 Class ContactoEmergencia {
-    -String numeroIdentificacion
-    -String nombre
-    -String apellido
-    -String genero
-    -String email
-    -String telefono
-    -Date fechaNacimiento
-    -String parentesco
+    -String numeroIdentificacion;
+    -String nombre;
+    -String apellido;
+    -String genero;
+    -String email;
+    -String telefono;
+    -Date fechaNacimiento;
+    -String parentesco;
 }
 
 Class AsignacionComponente {
-    -Soldado soldado
-    -UnidadMilitar unidadMilitar
-    -Date fechaIngreso
-    -String oficioInicial
+    -Soldado soldado;
+    -UnidadMilitar unidadMilitar;
+    -Date fechaIngreso;
+    -String oficioInicial;
 }
 
 Class Labor {
-    -String codigo
-    -String nombre
-    -String descripcion
-    -Date fechaAsignacion
-    -Date fechaInicio
-    -Date fechaFin
-    -List<Funcion> funciones
+    -String codigo;
+    -String nombre;
+    -String descripcion;
+    -Date fechaAsignacion;
+    -Date fechaInicio;
+    -Date fechaFin;
+    -List<Funcion> funciones;
 }
 
 Class Funcion {
-    -String codigo
-    -String nombre
-    -String descripcion
-    -String procedimiento
+    -String codigo;
+    -String nombre;
+    -String descripcion;
+    -String procedimiento;
 }
 
 Class ProgramaEntrenamiento {
-    -String codigo
-    -String nombre
-    -String descripcion
-    -List<Actividad> actividades
-    -Soldado soldadoResponsable
+    -String codigo;
+    -String nombre;
+    -String descripcion;
+    -List<Actividad> actividades;
+    -Soldado soldadoResponsable;
+    -Date fechaInicio;
+    -Date fechaFin;
+
+    +obtenerActividadesProgramadas(): List<Actividad>
 }
 
 Class Actividad {
-    -String codigo
-    -String nombre
-    -String descripcion
-    -String areaAplicacion
-    -String tipo
-    -List<String> objetivos
-    -Soldado soldadoResponsable
-    -List<Soldado> instructores
+    #String codigo;
+    #String nombre;
+    #String descripcion;
+    #String areaAplicacion;
+    #String tipo;
+    #List<String> objetivos;
+    #Soldado soldadoResponsable;
+    #List<Soldado> instructores;
+    #Date fecha;
+
+    +obtenerLiderResponsable(): Soldado
 }
 
 Class ActividadEjercicio extends Actividad {
-    -String lugarEntrenamiento
-    -int cantidadMinimaPracticas
-    -String nivelDificultad
-    -List<Actividad> ejerciciosPrevios
-    -String areaCuerpoHumano
-    -double IMCideal
+    -String lugarEntrenamiento;
+    -int cantidadMinimaPracticas;
+    -String nivelDificultad;
+    -List<Actividad> ejerciciosPrevios;
+    -String areaCuerpoHumano;
+    -double IMCideal;
 }
 
 Class ActividadFormacion extends Actividad {
-    -String tematicaCapacitacion
-    -String bibliografia
-    -List<String> objetivosAprendizaje
-    -List<String> competencias
+    -String tematicaCapacitacion;
+    -String bibliografia;
+    -List<String> objetivosAprendizaje;
+    -List<String> competencias;
 }
 
 Class Insumo {
-    -String codigo
-    -String nombreHerramienta
-    -String marca
-    -String modelo
-    -String foto
-    -Date fechaAdquisicion
-    -String tipo
-    -int unidadesAdquiridas
-    -double precio
-    -String estado
-    -boolean esDeConsumo
+    -String codigo;
+    -String nombreHerramienta;
+    -String marca;
+    -String modelo;
+    -String foto;
+    -Date fechaAdquisicion;
+    -String tipo;
+    -int unidadesAdquiridas;
+    -double precio;
+    -String estado;
+    -boolean esDeConsumo;
+
+    +estaDisponible(): boolean
 }
 
 Class ControlInventario {
-    -Insumo insumo
-    -int cantidadDisponible
-    -Date fechaRegistro
+    -Insumo insumo;
+    -int cantidadDisponible;
+    -Date fechaRegistro;
+
+    +obtenerEstadoInventario(): String
 }
 
 Class RegistroEntregaInsumo {
-    -Soldado soldado
+    -Soldado soldado;
     -Insumo insumo
     -Actividad actividad
     -Date fechaEntrega
@@ -165,20 +182,21 @@ Class RegistroEntregaInsumo {
 }
 
 Class RegistroSalud {
-    -Soldado soldado
-    -double peso
-    -int ritmoCardiaco
-    -String condicionSalud
-    -Date fechaRegistro
+    -Soldado soldado;
+    -double peso;
+    -int ritmoCardiaco;
+    -String condicionSalud;
+    -Date fechaRegistro;
+
+    +obtenerCondicionSalud(): String
 }
 
 Class CriterioAscenso {
-    -String codigo
-    -String descripcion
-    -String tipo
+    -String codigo;
+    -String descripcion;
+    -String tipo;
 }
 
-' Relaciones
 
 Soldado "1" -- "*" UnidadMilitar : Pertenece >
 (Soldado, UnidadMilitar) .. AsignacionComponente
@@ -190,7 +208,7 @@ Soldado "1" -- "*" Labor : Realiza >
 Soldado "1" -- "*" Actividad : Participa 
 Soldado "1" -- "*" RegistroSalud : Tiene 
 UnidadMilitar "1" -- "*" Soldado : Dirigido por 
-Rango "1" -- "*" Soldado : Asignado a 
+Rango "1" -- "*" Soldado : Asignado  
 Rango "1" -- "1" CuerpoMilitar : Pertenece a 
 CuerpoMilitar "1" -- "*" Rango : Contiene 
 CuerpoMilitar "1" -- "*" Soldado : Contiene 
@@ -204,7 +222,8 @@ Actividad "1" -- "*" Soldado : Participa
 Insumo "1" -- "*" ControlInventario : Registrado en 
 Insumo "1" -- "*" RegistroEntregaInsumo : Entregado en 
 RegistroEntregaInsumo "1" -- "1" Soldado : Entregado a 
-RegistroEntregaInsumo "1" -- "1" Actividad : Para 
-Cuartel "1" -- "*" UnidadMilitar : Aloja 
+RegistroEntregaInsumo "1" -- "1" Actividad:Para 
+Cuartel "1" -- "*" UnidadMilitar : Aloja
+UnidadMilitar "1" -- "*" UnidadMilitar : Contiene 
 
 @enduml
