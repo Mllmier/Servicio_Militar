@@ -5,9 +5,7 @@
 package MariaLeon.base;
 
 import java.util.Date;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 /**
  *
@@ -21,21 +19,18 @@ public class Labor {
     private Date fechaInicio;
     private Date fechaFin;
     private List<Funcion> funciones;
-    private static Set<String> codigosLaborRegistrados = new HashSet<>();
+    public Labor(){
+        
+    }
 
-
-    public Labor(String codigo, String nombre, String descripcion, Date fechaAsignacion, Date fechaInicio, Date fechaFin) {
+    public Labor(String codigo, String nombre, String descripcion, Date fechaAsignacion, Date fechaInicio, Date fechaFin, List<Funcion> funciones) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.fechaAsignacion = fechaAsignacion;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
-            if (codigosLaborRegistrados.contains(codigo)) {
-            throw new IllegalArgumentException("El código de la labor ya está en uso.");
-        }
-        codigosLaborRegistrados.add(codigo);
-
+        this.funciones = funciones;
     }
 
     public String getCodigo() {
@@ -93,6 +88,7 @@ public class Labor {
     public void setFunciones(List<Funcion> funciones) {
         this.funciones = funciones;
     }
+
     
     
 }

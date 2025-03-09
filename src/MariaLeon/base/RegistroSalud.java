@@ -11,18 +11,30 @@ import java.util.Date;
  * @author Maria liz
  */
 public class RegistroSalud {
-     private double peso;
-     private int ritmoCardiaco;
-     private String condicionSalud;
-     private Date fechaRegistro;
-     private Soldado soldado;
-    // public obtenerCondicionSalud(): String
-
-    public RegistroSalud(double peso, int ritmoCardiaco, String condicionSalud, Date fechaRegistro) {
+   private Soldado soldado;
+    private double peso;
+    private int ritmoCardiaco;
+    private String condicionSalud;
+    private Date fechaRegistro;
+     
+    public RegistroSalud(){
+        
+    }
+    
+    public RegistroSalud(Soldado soldado, double peso, int ritmoCardiaco, String condicionSalud, Date fechaRegistro) {
+        this.soldado = soldado;
         this.peso = peso;
         this.ritmoCardiaco = ritmoCardiaco;
         this.condicionSalud = condicionSalud;
         this.fechaRegistro = fechaRegistro;
+    }
+
+    public Soldado getSoldado() {
+        return soldado;
+    }
+
+    public void setSoldado(Soldado soldado) {
+        this.soldado = soldado;
     }
 
     public double getPeso() {
@@ -56,14 +68,5 @@ public class RegistroSalud {
     public void setFechaRegistro(Date fechaRegistro) {
         this.fechaRegistro = fechaRegistro;
     }
-
-    public Soldado getSoldado() {
-        return soldado;
-    }
-
-    public void setSoldado(Soldado soldado) {
-        this.soldado = soldado;
-    }
     
-     
 }

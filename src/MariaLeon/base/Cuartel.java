@@ -11,17 +11,18 @@ import java.util.List;
  * @author Maria liz
  */
 public class Cuartel {
-    private String codigo;
+     private String codigo;
     private String nombre;
     private String direccion;
-    private int capacidad;
-    private List<UnidadMilitar> unidadesAlojadas;
+    private  int capacidad;
+    private List<ElementoMilitar > unidadesAlojadas;
 
-    public Cuartel(String codigo, String nombre, String direccion, int capacidad) {
+    public Cuartel(String codigo, String nombre, String direccion, int capacidad, List<ElementoMilitar> unidadesAlojadas) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.direccion = direccion;
         this.capacidad = capacidad;
+        this.unidadesAlojadas = unidadesAlojadas;
     }
 
     public String getCodigo() {
@@ -56,13 +57,12 @@ public class Cuartel {
         this.capacidad = capacidad;
     }
 
-    public List<UnidadMilitar> getUnidadesAlojadas() {
+    public List<ElementoMilitar> getUnidadesAlojadas() {
         return unidadesAlojadas;
     }
 
-    public void setUnidadesAlojadas(List<UnidadMilitar> unidadesAlojadas) {
+    public void setUnidadesAlojadas(List<ElementoMilitar> unidadesAlojadas) {
         this.unidadesAlojadas = unidadesAlojadas;
     }
-    
     
 }

@@ -12,45 +12,64 @@ import java.util.List;
  * @author Maria liz
  */
 public class Soldado {
+     private DocumentoIdentidad documentoIdentidad;
     private String codigoMilitar;
-    private String nombre ;
+    private Date fechaIngreso;
+    private String oficioInicial;
     private String apellido;
-    private int edad;
     private Date fechaNacimiento;
+    private int edad;
     private String genero;
     private double alturaInicial;
     private double pesoInicial;
+    private String direccion;
     private String telefono;
     private String email;
     private Rango rango;
     private CuerpoMilitar cuerpoMilitar;
     private Soldado superior;
     private List<ContactoEmergencia> contactosEmergencia;
-    private List<UnidadMilitar> unidadesAsignadas;
-    private DocumentoIdentidad documentoIdentidad;
-    
-    public void Soldado(){
-        
+    private List<Labor>labores;
+    private List<Actividad>listaActividades;
+
+    public DocumentoIdentidad getDocumentoIdentidad() {
+        return documentoIdentidad;
     }
 
-
-    public Soldado(String codigoMilitar, String nombre, String apellido, int edad, String genero, double alturaInicial, double pesoInicial, String telefono,Date fechaNacimiento, String email, Rango rango, CuerpoMilitar cuerpoMilitar, Soldado superior, List<ContactoEmergencia> contactosEmergencia, List<UnidadMilitar> unidadesAsignadas, DocumentoIdentidad documentoIdentidad) {
-        this.codigoMilitar = codigoMilitar;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.edad = edad;
-        this.genero = genero;
-        this.alturaInicial = alturaInicial;
-        this.pesoInicial = pesoInicial;
-        this.telefono = telefono;
-        this.email = email;
-        this.rango = rango;
-        this.fechaNacimiento=fechaNacimiento;
-        this.cuerpoMilitar = cuerpoMilitar;
-        this.superior = superior;
-        this.contactosEmergencia = contactosEmergencia;
-        this.unidadesAsignadas = unidadesAsignadas;
+    public void setDocumentoIdentidad(DocumentoIdentidad documentoIdentidad) {
         this.documentoIdentidad = documentoIdentidad;
+    }
+
+    public String getCodigoMilitar() {
+        return codigoMilitar;
+    }
+
+    public void setCodigoMilitar(String codigoMilitar) {
+        this.codigoMilitar = codigoMilitar;
+    }
+
+    public Date getFechaIngreso() {
+        return fechaIngreso;
+    }
+
+    public void setFechaIngreso(Date fechaIngreso) {
+        this.fechaIngreso = fechaIngreso;
+    }
+
+    public String getOficioInicial() {
+        return oficioInicial;
+    }
+
+    public void setOficioInicial(String oficioInicial) {
+        this.oficioInicial = oficioInicial;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 
     public Date getFechaNacimiento() {
@@ -60,28 +79,12 @@ public class Soldado {
     public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
-    
-  
-
-    public String getCodigoMilitar() {
-        return codigoMilitar;
-    }
-
-    public void setCodigoMilitar(String codigoMilitar) {
-          if (codigoMilitar == null || codigoMilitar.isEmpty()) {
-            throw new IllegalArgumentException("El código militar es obligatorio.");
-        }
-        this.codigoMilitar = codigoMilitar;
-    }
 
     public int getEdad() {
         return edad;
     }
 
     public void setEdad(int edad) {
-        if (edad < 18 || edad > 60) {
-            throw new IllegalArgumentException("La edad debe estar entre 18 y 60 años.");
-        }
         this.edad = edad;
     }
 
@@ -109,14 +112,19 @@ public class Soldado {
         this.pesoInicial = pesoInicial;
     }
 
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
     public String getTelefono() {
         return telefono;
     }
 
     public void setTelefono(String telefono) {
-         if (telefono == null || !telefono.matches("^[0-9]{10}$")) {
-            throw new IllegalArgumentException("El número de teléfono debe tener 10 dígitos.");
-        }
         this.telefono = telefono;
     }
 
@@ -125,9 +133,6 @@ public class Soldado {
     }
 
     public void setEmail(String email) {
-        if (email == null || !email.matches("^[A-Za-z0-9+_.-]+@(.+)$")) {
-            throw new IllegalArgumentException("El email debe tener un formato válido.");
-        }
         this.email = email;
     }
 
@@ -136,9 +141,6 @@ public class Soldado {
     }
 
     public void setRango(Rango rango) {
-        if (rango == null) {
-            throw new IllegalArgumentException("El rango es obligatorio.");
-        }
         this.rango = rango;
     }
 
@@ -147,83 +149,39 @@ public class Soldado {
     }
 
     public void setCuerpoMilitar(CuerpoMilitar cuerpoMilitar) {
-        
-        if (cuerpoMilitar == null) {
-            throw new IllegalArgumentException("El cuerpo militar es obligatorio.");
-        }
         this.cuerpoMilitar = cuerpoMilitar;
     }
-//falta esta validacion 
+
     public Soldado getSuperior() {
         return superior;
     }
 
     public void setSuperior(Soldado superior) {
-        
         this.superior = superior;
     }
 
     public List<ContactoEmergencia> getContactosEmergencia() {
-        
         return contactosEmergencia;
     }
 
     public void setContactosEmergencia(List<ContactoEmergencia> contactosEmergencia) {
-          if (contactosEmergencia == null || contactosEmergencia.size() < 2) {
-            throw new IllegalArgumentException("Debe haber al menos dos contactos de emergencia.");
-        }
         this.contactosEmergencia = contactosEmergencia;
     }
 
-    public List<UnidadMilitar> getUnidadesAsignadas() {
-        return unidadesAsignadas;
+    public List<Labor> getLabores() {
+        return labores;
     }
 
-    public void setUnidadesAsignadas(List<UnidadMilitar> unidadesAsignadas) {
-        this.unidadesAsignadas = unidadesAsignadas;
+    public void setLabores(List<Labor> labores) {
+        this.labores = labores;
     }
 
-    public String getNombre() {
-        return nombre;
+    public List<Actividad> getListaActividades() {
+        return listaActividades;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setListaActividades(List<Actividad> listaActividades) {
+        this.listaActividades = listaActividades;
     }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-         if (apellido == null || apellido.isEmpty()) {
-            throw new IllegalArgumentException("El apellido es obligatorio.");
-        }
-        this.apellido = apellido;
-    }
-
-    public DocumentoIdentidad getDocumentoIdentidad() {
-        return documentoIdentidad;
-    }
-
-    public void setDocumentoIdentidad(DocumentoIdentidad documentoIdentidad) {
-          if (documentoIdentidad == null) {
-        throw new IllegalArgumentException("El documento de identidad es obligatorio.");
-    }
-
-    String numeroDocumento = documentoIdentidad.getNumero();
-    if (!DocumentoIdentidad.esNumeroDocumentoUnico(numeroDocumento)) {
-        throw new IllegalArgumentException("El número de documento ya está en uso.");
-    }        this.documentoIdentidad = documentoIdentidad;
-    }
-
-    @Override
-    public String toString() {
-        return "Soldado" + "codigoMilitar=" + codigoMilitar + ", nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + ", genero=" + genero + ", alturaInicial=" + alturaInicial + ", pesoInicial=" + pesoInicial + ", telefono=" + telefono + ", email=" + email + ", rango=" + rango + ", cuerpoMilitar=" + cuerpoMilitar + ", superior=" + superior + ", contactosEmergencia=" + contactosEmergencia + ", unidadesAsignadas=" + unidadesAsignadas + ", documentoIdentidad=" + documentoIdentidad ;
-    }
-
-    
- 
-    
     
 }

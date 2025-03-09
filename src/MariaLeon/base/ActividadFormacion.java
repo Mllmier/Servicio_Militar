@@ -4,31 +4,32 @@
  */
 package MariaLeon.base;
 
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 /**
- * Clase que representa una actividad de formación dentro del sistema.
+ *
+ * @author Maria liz
  */
 public class ActividadFormacion extends Actividad {
-    private String tematicaCapacitacion;
+     private String tematicaCapacitacion;
     private String bibliografia;
-    private List<String> objetivosAprendizaje;
+    private String objetivosAprendizaje;
     private List<String> competencias;
+    public ActividadFormacion(){
+        
+    }
 
-    // Constructor con parámetros obligatorios
-    public ActividadFormacion(String codigoActividad, String nombre, String descripcion, 
-                              String areaAplicacion, String tipo, LocalDate fecha,
-                              String tematicaCapacitacion, String bibliografia, 
-                              List<String> objetivosAprendizaje, List<String> competencias) {
-        super(codigoActividad, nombre, descripcion, areaAplicacion, tipo, fecha);
+    public ActividadFormacion(String tematicaCapacitacion, String bibliografia,String objetivosAprendizaje, List<String> competencias, String codigo, String nombre, String descripcion, String areaAplicacion, String tipo, List<String> objetivos, Soldado soldadoResponsable, List<Soldado> instructores, Date fecha, List<Insumo> listaInsumos) {
+        super(codigo, nombre, descripcion, areaAplicacion, tipo, objetivos, soldadoResponsable, instructores, fecha, listaInsumos);
         this.tematicaCapacitacion = tematicaCapacitacion;
         this.bibliografia = bibliografia;
         this.objetivosAprendizaje = objetivosAprendizaje;
         this.competencias = competencias;
     }
 
-    // Métodos de acceso (getters y setters)
+   
+
     public String getTematicaCapacitacion() {
         return tematicaCapacitacion;
     }
@@ -45,11 +46,11 @@ public class ActividadFormacion extends Actividad {
         this.bibliografia = bibliografia;
     }
 
-    public List<String> getObjetivosAprendizaje() {
+    public String getObjetivosAprendizaje() {
         return objetivosAprendizaje;
     }
 
-    public void setObjetivosAprendizaje(List<String> objetivosAprendizaje) {
+    public void setObjetivosAprendizaje(String  objetivosAprendizaje) {
         this.objetivosAprendizaje = objetivosAprendizaje;
     }
 
@@ -60,7 +61,5 @@ public class ActividadFormacion extends Actividad {
     public void setCompetencias(List<String> competencias) {
         this.competencias = competencias;
     }
-
-    
     
 }

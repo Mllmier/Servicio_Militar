@@ -5,23 +5,19 @@
 package MariaLeon.base;
 
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  *
  * @author Maria liz
  */
 public class DocumentoIdentidad {
-    private String numero;
+     private String numero;
     private String tipo;
     private Date fechaExpedicion;
     private String lugarExpedicion;
-    private String tipoSangre;
-    private static Set<String> numerosDocumentosRegistrados = new HashSet<>();
-
-    public static boolean esNumeroDocumentoUnico(String numero) {
-        return numerosDocumentosRegistrados.add(numero);
+    private String tipoSangre; 
+    public   DocumentoIdentidad(){
+        
     }
 
     public DocumentoIdentidad(String numero, String tipo, Date fechaExpedicion, String lugarExpedicion, String tipoSangre) {

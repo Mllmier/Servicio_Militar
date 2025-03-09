@@ -4,6 +4,7 @@
  */
 package MariaLeon.base;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -29,6 +30,9 @@ public class ContactoEmergencia {
         this.telefono = telefono;
         this.fechaNacimiento = fechaNacimiento;
         this.parentesco = parentesco;
+    }
+
+    public ContactoEmergencia() {
     }
 
     public String getNumeroIdentificacion() {
@@ -79,8 +83,8 @@ public class ContactoEmergencia {
         this.telefono = telefono;
     }
 
-    public Date getFechaNacimiento() {
-        return fechaNacimiento;
+    public String getFechaNacimiento() {
+        return new SimpleDateFormat("dd-MM-yyyy").format(fechaNacimiento);
     }
 
     public void setFechaNacimiento(Date fechaNacimiento) {
@@ -94,6 +98,5 @@ public class ContactoEmergencia {
     public void setParentesco(String parentesco) {
         this.parentesco = parentesco;
     }
-    
     
 }

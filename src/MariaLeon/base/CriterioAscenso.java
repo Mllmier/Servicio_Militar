@@ -9,22 +9,26 @@ package MariaLeon.base;
  * @author Maria liz
  */
 public class CriterioAscenso {
-    private String codigoAscenso;
+    private String codigo;
     private String descripcion;
     private String tipo;
+    
+    public CriterioAscenso(){
+        
+    }
 
-    public CriterioAscenso(String codigoAscenso, String descripcion, String tipo) {
-        this.codigoAscenso = codigoAscenso;
+    public CriterioAscenso(String codigo, String descripcion, String tipo) {
+        this.codigo = codigo;
         this.descripcion = descripcion;
         this.tipo = tipo;
     }
 
-    public String getCodigoAscenso() {
-        return codigoAscenso;
+    public String getCodigo() {
+        return codigo;
     }
 
-    public void setCodigoAscenso(String codigoAscenso) {
-        this.codigoAscenso = codigoAscenso;
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 
     public String getDescripcion() {

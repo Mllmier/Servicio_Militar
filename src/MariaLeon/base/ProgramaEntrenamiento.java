@@ -15,20 +15,22 @@ public class ProgramaEntrenamiento {
     private String codigo;
     private String nombre;
     private String descripcion;
-    private Date fechaInicio;
-    private Date fechaFin;
     private List<Actividad> actividades;
     private Soldado soldadoResponsable;
+    private Date fechaInicio;
+    private Date fechaFin;
+   public ProgramaEntrenamiento(){
+    
+}
 
-    public ProgramaEntrenamiento(String codigo, String nombre, String descripcion, Date fechaInicio, Date fechaFin) {
+    public ProgramaEntrenamiento(String codigo, String nombre, String descripcion, List<Actividad> actividades, Soldado soldadoResponsable, Date fechaInicio, Date fechaFin) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.descripcion = descripcion;
+        this.actividades = actividades;
+        this.soldadoResponsable = soldadoResponsable;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
-    }
-     public List<Actividad> obtenerActividadesProgramadas() {
-        return actividades;
     }
 
     public String getCodigo() {
@@ -55,22 +57,6 @@ public class ProgramaEntrenamiento {
         this.descripcion = descripcion;
     }
 
-    public Date getFechaInicio() {
-        return fechaInicio;
-    }
-
-    public void setFechaInicio(Date fechaInicio) {
-        this.fechaInicio = fechaInicio;
-    }
-
-    public Date getFechaFin() {
-        return fechaFin;
-    }
-
-    public void setFechaFin(Date fechaFin) {
-        this.fechaFin = fechaFin;
-    }
-
     public List<Actividad> getActividades() {
         return actividades;
     }
@@ -85,6 +71,22 @@ public class ProgramaEntrenamiento {
 
     public void setSoldadoResponsable(Soldado soldadoResponsable) {
         this.soldadoResponsable = soldadoResponsable;
+    }
+
+    public Date getFechaInicio() {
+        return fechaInicio;
+    }
+
+    public void setFechaInicio(Date fechaInicio) {
+        this.fechaInicio = fechaInicio;
+    }
+
+    public Date getFechaFin() {
+        return fechaFin;
+    }
+
+    public void setFechaFin(Date fechaFin) {
+        this.fechaFin = fechaFin;
     }
     
 }

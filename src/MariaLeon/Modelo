@@ -1,8 +1,9 @@
 @startuml
 
-Class UnidadMilitar {
+Class ElementoMilitar {
     -String codigo;
     -String nombre;
+    - String tipoElementoMilitar;
     -String descripcion;
     -Date fechaCreacion;
     -String direccion;
@@ -10,9 +11,9 @@ Class UnidadMilitar {
     -String mision;
     -Soldado soldadoDirigente;
     -String tipoUnidad;
-    -List<UnidadMilitar> subUnidades;
-
-    +obtenerDetalles(): String
+    -ComponenteMilitar componenteMilitar;
+    -List<Soldados>soldados;
+    +obtenerDetalles(): String;
 }
 
 Class Cuartel {
@@ -20,13 +21,14 @@ Class Cuartel {
     -String nombre;
     -String direccion;
     -int capacidad;
-    -List<UnidadMilitar> unidadesAlojadas;
+    -List<ElementoMilitar> unidadesAlojadas;
 }
 
 Class Soldado {
     -DocumentoIdentidad documentoIdentidad;
     -String codigoMilitar;
-    -String nombre;
+    -Date fechaIngreso;
+    -String oficioInicial;
     -String apellido;
     -Date fechaNacimiento;
     -int edad;
@@ -40,9 +42,10 @@ Class Soldado {
     -CuerpoMilitar cuerpoMilitar;
     -Soldado superior;
     -List<ContactoEmergencia> contactosEmergencia;
-    -List<UnidadMilitar> unidadesAsignadas;
+    -List<Labor>labores;
+    -List<Actividad>listaActividades;
 
-    +obtenerDetalles(): String;
+   
 }
 
 Class Rango {
@@ -83,11 +86,13 @@ Class ContactoEmergencia {
     -String parentesco;
 }
 
-Class AsignacionComponente {
+Class ComponenteMilitar {
+    -String codigo;
+    -String nombre;
+    -String descripcion;
     -Soldado soldado;
-    -UnidadMilitar unidadMilitar;
-    -Date fechaIngreso;
-    -String oficioInicial;
+    -Rango rango;
+
 }
 
 Class Labor {
@@ -98,6 +103,7 @@ Class Labor {
     -Date fechaInicio;
     -Date fechaFin;
     -List<Funcion> funciones;
+    -Soldado labores;
 }
 
 Class Funcion {
@@ -129,6 +135,7 @@ Class Actividad {
     #Soldado soldadoResponsable;
     #List<Soldado> instructores;
     #Date fecha;
+    -List<Insumo>listaInsumos;
 
     +obtenerLiderResponsable(): Soldado
 }
@@ -198,8 +205,7 @@ Class CriterioAscenso {
 }
 
 
-Soldado "1" -- "*" UnidadMilitar : Pertenece >
-(Soldado, UnidadMilitar) .. AsignacionComponente
+Soldado "*" -- "1" ElementoMilitar : Pertenece >
 
 Soldado "1" -- "1" Rango : Tiene 
 Soldado "1" -- "1" CuerpoMilitar : Pertenece 
@@ -207,7 +213,7 @@ Soldado "1" -- "*" ContactoEmergencia : Tiene
 Soldado "1" -- "*" Labor : Realiza >
 Soldado "1" -- "*" Actividad : Participa 
 Soldado "1" -- "*" RegistroSalud : Tiene 
-UnidadMilitar "1" -- "*" Soldado : Dirigido por 
+ElementoMilitar "1" -- "*" Soldado : Dirigido por 
 Rango "1" -- "*" Soldado : Asignado  
 Rango "1" -- "1" CuerpoMilitar : Pertenece a 
 CuerpoMilitar "1" -- "*" Rango : Contiene 
@@ -223,7 +229,6 @@ Insumo "1" -- "*" ControlInventario : Registrado en
 Insumo "1" -- "*" RegistroEntregaInsumo : Entregado en 
 RegistroEntregaInsumo "1" -- "1" Soldado : Entregado a 
 RegistroEntregaInsumo "1" -- "1" Actividad:Para 
-Cuartel "1" -- "*" UnidadMilitar : Aloja
-UnidadMilitar "1" -- "*" UnidadMilitar : Contiene 
-
+Cuartel "1" -- "*" ElementoMilitar : Aloja
+ComponenteMilitar"1" --"*"ElementoMilitar :Tiene
 @enduml

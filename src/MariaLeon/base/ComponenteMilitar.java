@@ -8,20 +8,19 @@ package MariaLeon.base;
  *
  * @author Maria liz
  */
-public class Funcion {
+public class ComponenteMilitar {
     private String codigo;
     private String nombre;
     private String descripcion;
-    private String procedimiento;
-    public Funcion(){
-        
-    }
-
-    public Funcion(String codigo, String nombre, String descripcion, String procedimiento) {
+    private Soldado soldado;
+    private Rango rango;
+public ComponenteMilitar(){}
+    public ComponenteMilitar(String codigo, String nombre, String descripcion, Soldado soldado, Rango rango) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.procedimiento = procedimiento;
+        this.soldado = soldado;
+        this.rango = rango;
     }
 
     public String getCodigo() {
@@ -48,12 +47,21 @@ public class Funcion {
         this.descripcion = descripcion;
     }
 
-    public String getProcedimiento() {
-        return procedimiento;
+    public Soldado getSoldado() {
+        return soldado;
     }
 
-    public void setProcedimiento(String procedimiento) {
-        this.procedimiento = procedimiento;
+    public void setSoldado(Soldado soldado) {
+        this.soldado = soldado;
+    }
+
+    public Rango getRango() {
+        return rango;
+    }
+
+    public void setRango(Rango rango) {
+        this.rango = rango;
     }
     
+
 }

@@ -10,11 +10,16 @@ package MariaLeon.base;
  */
 public class CuerpoMilitar {
     private String codigo;
+    private String nombre;
     private String descripcion;
     private String estructuraMando;
+    public CuerpoMilitar(){
+        
+    }
 
-    public CuerpoMilitar(String codigo, String descripcion, String estructuraMando) {
+    public CuerpoMilitar(String codigo, String nombre, String descripcion, String estructuraMando) {
         this.codigo = codigo;
+        this.nombre = nombre;
         this.descripcion = descripcion;
         this.estructuraMando = estructuraMando;
     }
@@ -25,6 +30,14 @@ public class CuerpoMilitar {
 
     public void setCodigo(String codigo) {
         this.codigo = codigo;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getDescripcion() {

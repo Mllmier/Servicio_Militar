@@ -4,40 +4,48 @@
  */
 package MariaLeon.base;
 
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 /**
- * Clase base para representar una actividad en el sistema.
+ *
+ * @author Maria liz
  */
 public class Actividad {
-    private String codigoActividad;
-    private String nombre;
-    private String descripcion;
-    private String areaAplicacion;
-    private String tipo;
-    private LocalDate fecha;
-    private List<String> objetivos;
-    private Soldado soldadoResponsable;
-    private List<Soldado> instructores;
+    protected String codigo;
+    protected String nombre;
+    protected String descripcion;
+    protected String areaAplicacion;
+    protected String tipo;
+    protected List<String> objetivos;
+    protected Soldado soldadoResponsable;
+    protected List<Soldado> instructores;
+    protected Date fecha;
+    private List<Insumo>listaInsumos;
+    public Actividad(){
+        
+    }
 
-    public Actividad(String codigoActividad, String nombre, String descripcion, 
-                     String areaAplicacion, String tipo, LocalDate fecha) {
-        this.codigoActividad = codigoActividad;
+
+    public Actividad(String codigo, String nombre, String descripcion, String areaAplicacion, String tipo, List<String> objetivos, Soldado soldadoResponsable, List<Soldado> instructores, Date fecha, List<Insumo> listaInsumos) {
+        this.codigo = codigo;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.areaAplicacion = areaAplicacion;
         this.tipo = tipo;
+        this.objetivos = objetivos;
+        this.soldadoResponsable = soldadoResponsable;
+        this.instructores = instructores;
         this.fecha = fecha;
+        this.listaInsumos = listaInsumos;
     }
 
-    // Métodos de acceso (getters y setters)
-    public String getCodigoActividad() {
-        return codigoActividad;
+    public String getCodigo() {
+        return codigo;
     }
 
-    public void setCodigoActividad(String codigoActividad) {
-        this.codigoActividad = codigoActividad;
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 
     public String getNombre() {
@@ -72,14 +80,6 @@ public class Actividad {
         this.tipo = tipo;
     }
 
-    public LocalDate getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(LocalDate fecha) {
-        this.fecha = fecha;
-    }
-
     public List<String> getObjetivos() {
         return objetivos;
     }
@@ -103,4 +103,21 @@ public class Actividad {
     public void setInstructores(List<Soldado> instructores) {
         this.instructores = instructores;
     }
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+
+    public List<Insumo> getListaInsumos() {
+        return listaInsumos;
+    }
+
+    public void setListaInsumos(List<Insumo> listaInsumos) {
+        this.listaInsumos = listaInsumos;
+    }
+    
 }

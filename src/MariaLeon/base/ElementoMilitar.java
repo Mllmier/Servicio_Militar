@@ -6,16 +6,15 @@ package MariaLeon.base;
 
 import java.util.Date;
 import java.util.List;
-import java.util.UUID;
-
 
 /**
  *
  * @author Maria liz
  */
-public class UnidadMilitar {
-    private String codigo;
+public class ElementoMilitar {
+     private String codigo;
     private String nombre;
+    private String tipoElementoMilitar;
     private String descripcion;
     private Date fechaCreacion;
     private String direccion;
@@ -23,14 +22,14 @@ public class UnidadMilitar {
     private String mision;
     private Soldado soldadoDirigente;
     private String tipoUnidad;
-    private List<UnidadMilitar> subUnidades;
-    public UnidadMilitar(){
+    private ComponenteMilitar componenteMilitar;
+    private List<Soldado>soldados;
+    //+obtenerDetalles(): String;
 
-    }
-  
-    public UnidadMilitar(String codigo, String nombre, String descripcion, Date fechaCreacion, String direccion, String objetivo, String mision, Soldado soldadoDirigente, String tipoUnidad, List<UnidadMilitar> subUnidades) {
+    public ElementoMilitar(String codigo, String nombre, String tipoElementoMilitar, String descripcion, Date fechaCreacion, String direccion, String objetivo, String mision, Soldado soldadoDirigente, String tipoUnidad, ComponenteMilitar componenteMilitar, List<Soldado> soldados) {
         this.codigo = codigo;
         this.nombre = nombre;
+        this.tipoElementoMilitar = tipoElementoMilitar;
         this.descripcion = descripcion;
         this.fechaCreacion = fechaCreacion;
         this.direccion = direccion;
@@ -38,12 +37,8 @@ public class UnidadMilitar {
         this.mision = mision;
         this.soldadoDirigente = soldadoDirigente;
         this.tipoUnidad = tipoUnidad;
-        this.subUnidades = subUnidades;
-        this.codigo = generarCodigoUnico();
-
-    }
-     private String generarCodigoUnico() {
-        return UUID.randomUUID().toString();
+        this.componenteMilitar = componenteMilitar;
+        this.soldados = soldados;
     }
 
     public String getCodigo() {
@@ -62,14 +57,19 @@ public class UnidadMilitar {
         this.nombre = nombre;
     }
 
+    public String getTipoElementoMilitar() {
+        return tipoElementoMilitar;
+    }
+
+    public void setTipoElementoMilitar(String tipoElementoMilitar) {
+        this.tipoElementoMilitar = tipoElementoMilitar;
+    }
+
     public String getDescripcion() {
         return descripcion;
     }
 
     public void setDescripcion(String descripcion) {
-         if (descripcion == null || descripcion.isEmpty()) {
-            throw new IllegalArgumentException("La descripción es obligatoria.");
-        }
         this.descripcion = descripcion;
     }
 
@@ -86,9 +86,6 @@ public class UnidadMilitar {
     }
 
     public void setDireccion(String direccion) {
-           if (direccion == null || direccion.isEmpty()) {
-            throw new IllegalArgumentException("La dirección es obligatoria.");
-        }
         this.direccion = direccion;
     }
 
@@ -113,7 +110,6 @@ public class UnidadMilitar {
     }
 
     public void setSoldadoDirigente(Soldado soldadoDirigente) {
-
         this.soldadoDirigente = soldadoDirigente;
     }
 
@@ -125,18 +121,20 @@ public class UnidadMilitar {
         this.tipoUnidad = tipoUnidad;
     }
 
-    public List<UnidadMilitar> getSubUnidades() {
-        return subUnidades;
+    public ComponenteMilitar getComponenteMilitar() {
+        return componenteMilitar;
     }
 
-    public void setSubUnidades(List<UnidadMilitar> subUnidades) {
-        this.subUnidades = subUnidades;
+    public void setComponenteMilitar(ComponenteMilitar componenteMilitar) {
+        this.componenteMilitar = componenteMilitar;
     }
 
-    @Override
-    public String toString() {
-        return "UnidadMilitar" + "\ncodigo:" + codigo + "\n nombre:" + nombre + "\n descripcion:" + descripcion + "\nfechaCreacion:" + fechaCreacion + "\ndireccion:" 
-            + direccion + "\n objetivo:" + objetivo + "\n mision=" + mision + "\nsoldadoDirigente:"
-                + soldadoDirigente + "\ntipoUnidad:" + tipoUnidad + "\nsubUnidades:" + subUnidades ;
+    public List<Soldado> getSoldados() {
+        return soldados;
     }
+
+    public void setSoldados(List<Soldado> soldados) {
+        this.soldados = soldados;
+    }
+   
 }

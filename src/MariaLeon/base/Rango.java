@@ -4,16 +4,15 @@
  */
 package MariaLeon.base;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 /**
  *
  * @author Maria liz
  */
 public class Rango {
-     private String nombre;
+    private String codigo;
+    private String nombre;
     private String descripcion;
     private String insignia;
     private String linea;
@@ -21,9 +20,11 @@ public class Rango {
     private List<CriterioAscenso> criteriosAscenso;
     private CuerpoMilitar cuerpoMilitar;
     private Rango rangoSuperior;
-    private static Set<String> nombresRangosRegistrados = new HashSet<>();
-
-    public Rango(String nombre, String descripcion, String insignia, String linea, int tiempoMinAscenso, List<CriterioAscenso> criteriosAscenso, CuerpoMilitar cuerpoMilitar, Rango rangoSuperior) {
+     public  Rango(){
+         
+     }
+    public Rango(String codigo, String nombre, String descripcion, String insignia, String linea, int tiempoMinAscenso, List<CriterioAscenso> criteriosAscenso, CuerpoMilitar cuerpoMilitar, Rango rangoSuperior) {
+        this.codigo = codigo;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.insignia = insignia;
@@ -32,9 +33,14 @@ public class Rango {
         this.criteriosAscenso = criteriosAscenso;
         this.cuerpoMilitar = cuerpoMilitar;
         this.rangoSuperior = rangoSuperior;
-           if (nombresRangosRegistrados.contains(nombre)) {
-            throw new IllegalArgumentException("El nombre del rango ya está en uso.");
-        }
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 
     public String getNombre() {
@@ -100,4 +106,5 @@ public class Rango {
     public void setRangoSuperior(Rango rangoSuperior) {
         this.rangoSuperior = rangoSuperior;
     }
+    
 }

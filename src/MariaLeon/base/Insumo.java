@@ -23,6 +23,10 @@ public class Insumo {
     private String estado;
     private boolean esDeConsumo;
 
+    public Insumo(){
+        
+    }
+
     public Insumo(String codigo, String nombreHerramienta, String marca, String modelo, String foto, Date fechaAdquisicion, String tipo, int unidadesAdquiridas, double precio, String estado, boolean esDeConsumo) {
         this.codigo = codigo;
         this.nombreHerramienta = nombreHerramienta;
@@ -35,9 +39,6 @@ public class Insumo {
         this.precio = precio;
         this.estado = estado;
         this.esDeConsumo = esDeConsumo;
-    }
-    public boolean estaDisponible() {
-        return "Disponible".equals(this.estado) && this.unidadesAdquiridas > 0;
     }
 
     public String getCodigo() {
@@ -127,6 +128,5 @@ public class Insumo {
     public void setEsDeConsumo(boolean esDeConsumo) {
         this.esDeConsumo = esDeConsumo;
     }
-    
     
 }

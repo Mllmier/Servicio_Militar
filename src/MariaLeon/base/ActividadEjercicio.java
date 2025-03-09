@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package MariaLeon.base;
-import java.util.ArrayList;
+
 import java.util.Date;
 import java.util.List;
 
@@ -11,25 +11,27 @@ import java.util.List;
  *
  * @author Maria liz
  */
-public class ActividadEjercicio extends Actividad  {
+public class ActividadEjercicio extends Actividad{
     private String lugarEntrenamiento;
     private int cantidadMinimaPracticas;
     private String nivelDificultad;
+    private List<Actividad> ejerciciosPrevios;
     private String areaCuerpoHumano;
     private double IMCideal;
-    private List<Actividad> ejerciciosPrevios;
+    public ActividadEjercicio(){
+        
+    }
 
-    public ActividadEjercicio(String lugarEntrenamiento, int cantidadMinimaPracticas
-            ,String nivelDificultad, String areaCuerpoHumano, double IMCideal, String codigo, 
-            String nombre, String descripcion, String areaAplicacion, String tipo, Date fecha) {
-        super(codigo, nombre, descripcion, areaAplicacion, tipo, fecha);
+    public ActividadEjercicio(String lugarEntrenamiento, int cantidadMinimaPracticas, String nivelDificultad, List<Actividad> ejerciciosPrevios, String areaCuerpoHumano, double IMCideal, String codigo, String nombre, String descripcion, String areaAplicacion, String tipo, List<String> objetivos, Soldado soldadoResponsable, List<Soldado> instructores, Date fecha, List<Insumo> listaInsumos) {
+        super(codigo, nombre, descripcion, areaAplicacion, tipo, objetivos, soldadoResponsable, instructores, fecha, listaInsumos);
         this.lugarEntrenamiento = lugarEntrenamiento;
         this.cantidadMinimaPracticas = cantidadMinimaPracticas;
         this.nivelDificultad = nivelDificultad;
+        this.ejerciciosPrevios = ejerciciosPrevios;
         this.areaCuerpoHumano = areaCuerpoHumano;
         this.IMCideal = IMCideal;
-
     }
+
     
 
     public String getLugarEntrenamiento() {
@@ -56,6 +58,14 @@ public class ActividadEjercicio extends Actividad  {
         this.nivelDificultad = nivelDificultad;
     }
 
+    public List<Actividad> getEjerciciosPrevios() {
+        return ejerciciosPrevios;
+    }
+
+    public void setEjerciciosPrevios(List<Actividad> ejerciciosPrevios) {
+        this.ejerciciosPrevios = ejerciciosPrevios;
+    }
+
     public String getAreaCuerpoHumano() {
         return areaCuerpoHumano;
     }
@@ -71,15 +81,5 @@ public class ActividadEjercicio extends Actividad  {
     public void setIMCideal(double IMCideal) {
         this.IMCideal = IMCideal;
     }
-
-    public List<Actividad> getEjerciciosPrevios() {
-        return ejerciciosPrevios;
-    }
-
-    public void setEjerciciosPrevios(List<Actividad> ejerciciosPrevios) {
-        this.ejerciciosPrevios = ejerciciosPrevios;
-    }
     
-    
-  
 }

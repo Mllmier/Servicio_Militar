@@ -10,34 +10,21 @@ import java.util.Date;
  *
  * @author Maria liz
  */
-public class RegistroEntregaInsumo {
-    private Date fechaEntrega;
-    private Date fechaRetorno;  
+public class RegistroInsumo {
     private Soldado soldado;
     private Insumo insumo;
     private Actividad actividad;
+    private Date fechaEntrega;
+    private Date fechaRetorno;
+    public RegistroInsumo(){
+        
+    }
 
-    public RegistroEntregaInsumo(Date fechaEntrega, Date fechaRetorno, Soldado soldado, Insumo insumo, Actividad actividad) {
-        this.fechaEntrega = fechaEntrega;
-        this.fechaRetorno = fechaRetorno;
+    public RegistroInsumo(Soldado soldado, Insumo insumo, Actividad actividad, Date fechaEntrega, Date fechaRetorno) {
         this.soldado = soldado;
         this.insumo = insumo;
         this.actividad = actividad;
-    }
-
-    public Date getFechaEntrega() {
-        return fechaEntrega;
-    }
-
-    public void setFechaEntrega(Date fechaEntrega) {
         this.fechaEntrega = fechaEntrega;
-    }
-
-    public Date getFechaRetorno() {
-        return fechaRetorno;
-    }
-
-    public void setFechaRetorno(Date fechaRetorno) {
         this.fechaRetorno = fechaRetorno;
     }
 
@@ -64,6 +51,21 @@ public class RegistroEntregaInsumo {
     public void setActividad(Actividad actividad) {
         this.actividad = actividad;
     }
-    
+
+    public Date getFechaEntrega() {
+        return fechaEntrega;
+    }
+
+    public void setFechaEntrega(Date fechaEntrega) {
+        this.fechaEntrega = fechaEntrega;
+    }
+
+    public Date getFechaRetorno() {
+        return fechaRetorno;
+    }
+
+    public void setFechaRetorno(Date fechaRetorno) {
+        this.fechaRetorno = fechaRetorno;
+    }
     
 }
