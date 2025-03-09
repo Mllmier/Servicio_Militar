@@ -12,6 +12,7 @@ import java.util.List;
  * @author Maria liz
  */
 public class Soldado {
+    private String nombre;
      private DocumentoIdentidad documentoIdentidad;
     private String codigoMilitar;
     private Date fechaIngreso;
@@ -31,6 +32,32 @@ public class Soldado {
     private List<ContactoEmergencia> contactosEmergencia;
     private List<Labor>labores;
     private List<Actividad>listaActividades;
+    public Soldado(){
+        
+    }
+
+    public Soldado(DocumentoIdentidad documentoIdentidad, String codigoMilitar, Date fechaIngreso, String oficioInicial, String apellido, Date fechaNacimiento, int edad, String genero,String nombre, double alturaInicial, double pesoInicial, String direccion, String telefono, String email, Rango rango, CuerpoMilitar cuerpoMilitar, Soldado superior, List<ContactoEmergencia> contactosEmergencia, List<Labor> labores, List<Actividad> listaActividades) {
+        this.documentoIdentidad = documentoIdentidad;
+        this.codigoMilitar = codigoMilitar;
+        this.fechaIngreso = fechaIngreso;
+        this.oficioInicial = oficioInicial;
+        this.apellido = apellido;
+        this.fechaNacimiento = fechaNacimiento;
+        this.edad = edad;
+        this.genero = genero;
+        this.alturaInicial = alturaInicial;
+        this.pesoInicial = pesoInicial;
+        this.direccion = direccion;
+        this.telefono = telefono;
+        this.email = email;
+        this.rango = rango;
+        this.cuerpoMilitar = cuerpoMilitar;
+        this.superior = superior;
+        this.contactosEmergencia = contactosEmergencia;
+        this.labores = labores;
+        this.listaActividades = listaActividades;
+        this.nombre=nombre;
+    }
 
     public DocumentoIdentidad getDocumentoIdentidad() {
         return documentoIdentidad;
@@ -183,5 +210,14 @@ public class Soldado {
     public void setListaActividades(List<Actividad> listaActividades) {
         this.listaActividades = listaActividades;
     }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    
     
 }

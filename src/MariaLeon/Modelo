@@ -11,9 +11,9 @@ Class ElementoMilitar {
     -String mision;
     -Soldado soldadoDirigente;
     -String tipoUnidad;
+    -List<UnidadMilitar> subUnidades;
     -ComponenteMilitar componenteMilitar;
     -List<Soldados>soldados;
-    +obtenerDetalles(): String;
 }
 
 Class Cuartel {
@@ -21,7 +21,7 @@ Class Cuartel {
     -String nombre;
     -String direccion;
     -int capacidad;
-    -List<ElementoMilitar> unidadesAlojadas;
+    -List<UnidadMilitar> unidadesAlojadas;
 }
 
 Class Soldado {
@@ -32,6 +32,7 @@ Class Soldado {
     -String apellido;
     -Date fechaNacimiento;
     -int edad;
+    -String nombre;
     -String genero;
     -double alturaInicial;
     -double pesoInicial;
@@ -44,8 +45,8 @@ Class Soldado {
     -List<ContactoEmergencia> contactosEmergencia;
     -List<Labor>labores;
     -List<Actividad>listaActividades;
-
-   
+    -List<RegistroSalud>listaRegistrosSalud;
+    -ProgramaEntrenamiento Soldado;
 }
 
 Class Rango {
@@ -57,6 +58,7 @@ Class Rango {
     -int tiempoMinAscenso;
     -List<CriterioAscenso> criteriosAscenso;
     -CuerpoMilitar cuerpoMilitar;
+
     -Rango rangoSuperior;
 }
 
@@ -103,7 +105,6 @@ Class Labor {
     -Date fechaInicio;
     -Date fechaFin;
     -List<Funcion> funciones;
-    -Soldado labores;
 }
 
 Class Funcion {
@@ -121,8 +122,8 @@ Class ProgramaEntrenamiento {
     -Soldado soldadoResponsable;
     -Date fechaInicio;
     -Date fechaFin;
+    -List<Soldado>listaSoldados;
 
-    +obtenerActividadesProgramadas(): List<Actividad>
 }
 
 Class Actividad {
@@ -137,7 +138,6 @@ Class Actividad {
     #Date fecha;
     -List<Insumo>listaInsumos;
 
-    +obtenerLiderResponsable(): Soldado
 }
 
 Class ActividadEjercicio extends Actividad {
@@ -169,7 +169,6 @@ Class Insumo {
     -String estado;
     -boolean esDeConsumo;
 
-    +estaDisponible(): boolean
 }
 
 Class ControlInventario {
@@ -177,7 +176,6 @@ Class ControlInventario {
     -int cantidadDisponible;
     -Date fechaRegistro;
 
-    +obtenerEstadoInventario(): String
 }
 
 Class RegistroEntregaInsumo {
@@ -195,7 +193,6 @@ Class RegistroSalud {
     -String condicionSalud;
     -Date fechaRegistro;
 
-    +obtenerCondicionSalud(): String
 }
 
 Class CriterioAscenso {
@@ -231,4 +228,6 @@ RegistroEntregaInsumo "1" -- "1" Soldado : Entregado a
 RegistroEntregaInsumo "1" -- "1" Actividad:Para 
 Cuartel "1" -- "*" ElementoMilitar : Aloja
 ComponenteMilitar"1" --"*"ElementoMilitar :Tiene
+Soldado"1"--"1"ProgramaEntrenamiento:Tiene
+ProgramaEntrenamiento"1"--"*"Soldado:Tiene
 @enduml
