@@ -17,6 +17,8 @@ import java.util.UUID;
 public class principal {
     public static void main(String[] args) {
         String uuid = UUID.randomUUID().toString();
+        System.out.println("********Componente Militar*******************************");
+
         ComponenteMilitar componenteMilitar = new ComponenteMilitar( );
         componenteMilitar.setCodigo(uuid);
         componenteMilitar.setNombre("Mario");
@@ -24,8 +26,8 @@ public class principal {
         System.out.println("Nombre:"+componenteMilitar.getNombre());
         System.out.println("Codigo:"+componenteMilitar.getCodigo());
         System.out.println("Descripcion:"+componenteMilitar.getDescripcion());
-         System.out.println("***************************************");
 
+        System.out.println("**************Ascenso 1*************************");
 
         CriterioAscenso ascenso=new CriterioAscenso();
         ascenso.setCodigo(uuid);
@@ -35,9 +37,9 @@ public class principal {
         System.out.println("Descripcion:"+ascenso.getDescripcion());
         System.out.println("Tipo:"+ascenso.getTipo());
 
-                        System.out.println("***************************************");
 
-                
+       System.out.println("************Ascenso 2***************************");
+          
        CriterioAscenso ascenso2=new CriterioAscenso();
         ascenso2.setCodigo(uuid);
         ascenso2.setDescripcion("Ascendido a Coronel ");
@@ -47,8 +49,8 @@ public class principal {
          criteriosDeAscenso.add(ascenso2);
         System.out.println("Codigo Ascenso:"+ascenso2.getCodigo());
         System.out.println("Descripcion:"+ascenso2.getDescripcion());
-        System.out.println("***************************************");
-
+        
+        System.out.println("*************Cuerpo Militar**************************");
         CuerpoMilitar cuerpoMilitar=new CuerpoMilitar();
         cuerpoMilitar.setDescripcion("Este es el ejercito Tierra ");
         cuerpoMilitar.setCodigo(uuid);
@@ -58,17 +60,8 @@ public class principal {
         System.out.println("Codigo:"+cuerpoMilitar.getCodigo());
         System.out.println("Descripcion:"+cuerpoMilitar.getDescripcion());
         System.out.println("Estructura Mando:"+cuerpoMilitar.getEstructuraMando());
-                        System.out.println("***************************************");
 
-        DocumentoIdentidad documentoIdentidad=new DocumentoIdentidad();
-        documentoIdentidad.setTipo("Cedula");
-        documentoIdentidad.setTipoSangre("o+");
-        documentoIdentidad.setNumero("1102229564");
-        System.out.println("Tipo Sangre:"+documentoIdentidad.getTipoSangre());
-        System.out.println("Numero Identificacion:"+documentoIdentidad.getNumero());
-        System.out.println("Tipo Documento:"+documentoIdentidad.getTipo());
-
-                      System.out.println("***************************************");
+        System.out.println("*************Contacto Emergencia  **************************");
 
         ContactoEmergencia contactoEmergencia=new ContactoEmergencia();
         contactoEmergencia.setNombre("JUAN");
@@ -77,6 +70,9 @@ public class principal {
         contactoEmergencia.setGenero("Masculino");
         contactoEmergencia.setParentesco("Padre");
         contactoEmergencia.setFechaNacimiento(new Date("10/25/1993"));
+        contactoEmergencia.setNumeroIdentificacion("1234567789");
+
+        System.out.println("Numero Identificacion:"+contactoEmergencia.getNumeroIdentificacion());
         System.out.println("Nombre:"+contactoEmergencia.getNombre());
         System.out.println("Apellido:"+contactoEmergencia.getApellido());
         System.out.println("Email:"+contactoEmergencia.getEmail());
@@ -84,25 +80,28 @@ public class principal {
         System.out.println("Parentesco:"+contactoEmergencia.getParentesco());
         System.out.println("Fecha Nacimiento:"+contactoEmergencia.getFechaNacimiento());
        
-                System.out.println("***************************************");
+        System.out.println("*************Contacto Emergencia 2 **************************");
 
         
         ContactoEmergencia contactoEmergencia2=new ContactoEmergencia();
         contactoEmergencia2.setNombre("Yana");
         contactoEmergencia2.setApellido("Palacio");
+        contactoEmergencia.setNumeroIdentificacion("1234567890");
         contactoEmergencia2.setEmail("YanaPalacio@gmail.com");
         contactoEmergencia2.setGenero("Femenino");
         contactoEmergencia2.setParentesco("Madre");
         contactoEmergencia2.setFechaNacimiento(new Date("10/25/1995"));
         List<ContactoEmergencia> ContactoEmergencia = new ArrayList<ContactoEmergencia>();
         ContactoEmergencia.add(contactoEmergencia2);
-         System.out.println("Nombre:"+contactoEmergencia2.getNombre());
+        System.out.println("Nombre:"+contactoEmergencia2.getNombre());
         System.out.println("Apellido:"+contactoEmergencia2.getApellido());
         System.out.println("Email:"+contactoEmergencia2.getEmail());
         System.out.println("Genero:"+contactoEmergencia2.getGenero());
         System.out.println("Parentesco:"+contactoEmergencia2.getParentesco());
         System.out.println("Fecha Nacimiento:"+contactoEmergencia2.getFechaNacimiento());
-                System.out.println("***************************************");
+        System.out.println("Numero Identificacion:"+contactoEmergencia2.getNumeroIdentificacion());
+
+        System.out.println("************Funcion **************************");
 
 
         Funcion funcion=new Funcion();
@@ -114,10 +113,9 @@ public class principal {
         System.out.println("Descripcion:"+funcion.getDescripcion());
         System.out.println("Nombre:"+funcion.getNombre());
         System.out.println("Pocedimiento:"+funcion.getProcedimiento());
-                System.out.println("***************************************");
+        
+                System.out.println("*************Funcion 2 **************************");
 
-        
-        
         Funcion funcion2=new Funcion();
         funcion2.setCodigo("2345");
         funcion2.setDescripcion("Limpio Armamento  ");
@@ -129,7 +127,7 @@ public class principal {
         System.out.println("Descripcion:"+funcion2.getDescripcion());
         System.out.println("Nombre:"+funcion2.getNombre());
       
-                        System.out.println("***************************************");
+        System.out.println("*************Rango **************************");
 
         Rango rango=new Rango();
         rango.setCodigo(uuid);
@@ -145,7 +143,7 @@ public class principal {
         System.out.println("Tiempo Ascenso:"+rango.getTiempoMinAscenso());
         System.out.println("Insignia:"+rango.getInsignia());
         System.out.println("Nombre:"+rango.getNombre());
-                System.out.println("***************************************");
+                System.out.println("************* Labor **************************");
 
         Labor labor=new Labor();
         labor.setCodigo("23445");
@@ -157,7 +155,7 @@ public class principal {
         System.out.println("Descripcion:"+labor.getDescripcion());
         System.out.println("Fecha Asiganacion:"+labor.getFechaAsignacion());
         System.out.println("Criterio Ascenso:"+labor.getFechaFin());
-                System.out.println("***************************************");
+        System.out.println("************* Labor 2 **************************");
 
         Labor labor2=new Labor();
         labor2.setCodigo("23445");
@@ -171,7 +169,7 @@ public class principal {
         System.out.println("Descripcion:"+labor2.getDescripcion());
         System.out.println("Fecha Asiganacion:"+labor2.getFechaAsignacion());
         System.out.println("Criterio Ascenso:"+labor2.getFechaFin());
-                        System.out.println("***************************************");
+        System.out.println("************* Insumo **************************");
 
         Insumo insumo=new Insumo();
         insumo.setCodigo(uuid);
@@ -196,8 +194,8 @@ public class principal {
         System.out.println(" Unidades Abquiridas:"+insumo.getUnidadesAdquiridas());
 
 
+        System.out.println("************* Insumo 2**************************");
 
-                System.out.println("***************************************");
 
                 
         Insumo insumo2=new Insumo();
@@ -220,7 +218,6 @@ public class principal {
          System.out.println(" Nombre Herramienta:"+insumo2.getNombreHerramienta());
         System.out.println(" Tipo Insumo:"+insumo2.getTipo());
         System.out.println(" Unidades Abquiridas:"+insumo2.getUnidadesAdquiridas());
-                System.out.println("***************************************");
 
 
         Actividad actividad2=new Actividad();
@@ -236,13 +233,13 @@ public class principal {
         System.out.println("Codigo Actividad:"+actividad2.getCodigo());
         System.out.println("Descripcion:"+actividad2.getDescripcion());
         System.out.println("Fecha:"+actividad2.getFecha());
-                        System.out.println("***************************************");
 
        
        
 
         
-        
+          System.out.println("************* Soldado **************************");
+      
         Soldado soldado=new Soldado();
         soldado.setAlturaInicial(1.80);
         soldado.setNombre("Pedro");
@@ -251,7 +248,6 @@ public class principal {
         soldado.setContactosEmergencia(ContactoEmergencia);
         soldado.setCuerpoMilitar(cuerpoMilitar);
         soldado.setDireccion("San Diego");
-        soldado.setDocumentoIdentidad(documentoIdentidad);
         soldado.setEdad(26);
         soldado.setEmail("Alcazar123@gmail.com");
         soldado.setFechaIngreso(new Date("23/10/2014"));
@@ -261,8 +257,16 @@ public class principal {
         soldado.setListaActividades(listaActividades );
         soldado.setRango(rango);
         soldado.setTelefono("3205446987");
+        soldado.setFechaExpedicion(new Date ("23/10/2018"));
+        soldado.setNumero("1234567890");
+        soldado.setTipo("Cedula");
+        soldado.setTipoSangre("A-");
+        soldado.setLugarExpedicion("Bolivar");
         List<Soldado> listaInstructores = new ArrayList<Soldado>();
         listaInstructores.add(soldado);
+        System.out.println("Tipo Sangre:"+soldado.getTipoSangre());
+        System.out.println("Numero Identificacion:"+soldado.getNumero());
+        System.out.println("Tipo Documento:"+soldado.getTipo());
         System.out.println("Apellido: " + soldado.getApellido());
         System.out.println("Altura: " + soldado.getAlturaInicial());
         System.out.println("Código Militar: " + soldado.getCodigoMilitar());
@@ -273,11 +277,9 @@ public class principal {
         System.out.println("Fecha de Nacimiento: " + soldado.getFechaNacimiento());
         System.out.println("Género: " + soldado.getGenero());
         System.out.println("Teléfono: " + soldado.getTelefono());
-        System.out.println("Documento Identidad: " + soldado.getDocumentoIdentidad());
         System.out.println("Nombre: " + soldado.getNombre());
 
-                System.out.println("***************************************");
-
+        System.out.println("****************Soldado 2***********************");
         Soldado soldado2=new Soldado();
         soldado2.setAlturaInicial(1.80);
         soldado2.setNombre("Marta");
@@ -286,7 +288,6 @@ public class principal {
         soldado2.setContactosEmergencia(ContactoEmergencia);
         soldado2.setCuerpoMilitar(cuerpoMilitar);
         soldado2.setDireccion("San Diego");
-        soldado2.setDocumentoIdentidad(documentoIdentidad);
         soldado2.setEdad(26);
         soldado2.setEmail("Alcazar123@gmail.com");
         soldado2.setFechaIngreso(new Date("23/10/2014"));
@@ -296,6 +297,12 @@ public class principal {
         soldado2.setListaActividades(listaActividades );
         soldado2.setRango(rango);
         soldado2.setTelefono("3205446987");
+        soldado2.setFechaExpedicion(new Date ("23/10/2018"));
+        soldado2.setNumero("1234567890");
+        soldado2.setTipo("Cedula");
+        soldado2.setTipoSangre("o-");
+        soldado2.setLugarExpedicion("Sucre");
+       
         listaInstructores.add(soldado2);
         System.out.println("Apellido: " + soldado2.getApellido());
         System.out.println("Altura: " + soldado2.getAlturaInicial());
@@ -307,11 +314,16 @@ public class principal {
         System.out.println("Fecha de Nacimiento: " + soldado2.getFechaNacimiento());
         System.out.println("Género: " + soldado2.getGenero());
         System.out.println("Teléfono: " + soldado2.getTelefono());
-        System.out.println("Documento Identidad: " + soldado2.getDocumentoIdentidad());
+        System.out.println("Documento Identidad: " + soldado2.getNumero());
         System.out.println("Rango: " + soldado2.getRango());
         System.out.println("Nombre: " + soldado2.getNombre());
+        System.out.println("Tipo Sangre: " + soldado2.getTipoSangre());
+        System.out.println("Lugar Expedicion: " + soldado2.getLugarExpedicion());
+        System.out.println("Tipo Documento: " + soldado2.getTipo());
+        System.out.println("Fecha Expedicion: " + soldado2.getFechaExpedicion());
 
-                        System.out.println("***************************************");
+
+        System.out.println("************* Actividad **************************");
 
         Actividad actividad=new Actividad();
         actividad.setAreaAplicacion("Campo");
@@ -324,8 +336,8 @@ public class principal {
         System.out.println("Codigo Actividad:"+actividad.getCodigo());
         System.out.println("Descripcion:"+actividad.getDescripcion());
         System.out.println("Fecha:"+actividad.getFecha());
-                System.out.println("***************************************");
 
+        System.out.println("************* Control Inventario **************************");
 
         ControlInventario controlInventario=new ControlInventario();
         controlInventario.setCantidadDisponible(50);
@@ -333,9 +345,9 @@ public class principal {
         controlInventario.setInsumo(insumo);
         System.out.println("Cantidad Disponible:"+controlInventario.getCantidadDisponible());
         System.out.println("Fecha Registro:"+controlInventario.getFechaRegistro());
-                System.out.println("***************************************");
 
-        
+        System.out.println("************* Registro Insumo **************************");
+
         RegistroInsumo registroInsumo=new RegistroInsumo();
         registroInsumo.setActividad(actividad);
         registroInsumo.setFechaEntrega(new Date("23/11/2017"));
@@ -343,7 +355,7 @@ public class principal {
         registroInsumo.setInsumo(insumo);
         registroInsumo.setSoldado(soldado);
         System.out.println("Fecha Entrega:"+registroInsumo.getFechaEntrega());
-                System.out.println("***************************************");
+       System.out.println("****************Programa Entrenamiento***********************");
 
         
         ProgramaEntrenamiento programaEntrenamiento=new ProgramaEntrenamiento();
@@ -357,7 +369,7 @@ public class principal {
         System.out.println("Descripcion:"+programaEntrenamiento.getDescripcion());
         System.out.println("Fecha Fin:"+programaEntrenamiento.getFechaFin());
         System.out.println("Fecha Inicio:"+programaEntrenamiento.getFechaInicio());
-                System.out.println("***************************************");
+       System.out.println("****************Registro Salud***********************");
 
         RegistroSalud registrosSalud=new RegistroSalud();
         registrosSalud.setCondicionSalud("Saludable");
@@ -369,7 +381,7 @@ public class principal {
         System.out.println("Fecha Registro:"+registrosSalud.getFechaRegistro());
         System.out.println("Peso:"+registrosSalud.getPeso());
         System.out.println("Ritmo Cardiaco:"+registrosSalud.getRitmoCardiaco());
-                         System.out.println("***************************************");
+       System.out.println("****************Actividad Ejercicio***********************");
 
         ActividadEjercicio actividadEjercicio=new ActividadEjercicio();
         actividadEjercicio.setAreaAplicacion("Peleas");
@@ -388,10 +400,10 @@ public class principal {
         System.out.println("Cantidad Practica:"+actividadEjercicio.getCantidadMinimaPracticas());
         System.out.println("Codigo:"+actividadEjercicio.getCodigo());
         System.out.println("Descripcion:"+actividadEjercicio.getDescripcion());
-         System.out.println("Fecha:"+actividadEjercicio.getFecha());
+        System.out.println("Fecha:"+actividadEjercicio.getFecha());
         System.out.println("IMC:"+actividadEjercicio.getIMCideal());
         System.out.println("Lugar Entrenamiento:"+actividadEjercicio.getLugarEntrenamiento());
-                        System.out.println("***************************************");
+         System.out.println("****************Actividad Formacion***********************");
 
         ActividadFormacion actividadFormacion=new ActividadFormacion();
         actividadFormacion.setAreaAplicacion("Cerebro");

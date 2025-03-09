@@ -24,8 +24,7 @@ Class Cuartel {
     -List<UnidadMilitar> unidadesAlojadas;
 }
 
-Class Soldado {
-    -DocumentoIdentidad documentoIdentidad;
+Class Soldado extends DocumentoIdentidad {
     -String codigoMilitar;
     -Date fechaIngreso;
     -String oficioInicial;
@@ -202,17 +201,16 @@ Class CriterioAscenso {
 }
 
 
-Soldado "*" -- "1" ElementoMilitar : Pertenece >
-
+Soldado "*" -- "1" ElementoMilitar : Pertenece 
 Soldado "1" -- "1" Rango : Tiene 
 Soldado "1" -- "1" CuerpoMilitar : Pertenece 
 Soldado "1" -- "*" ContactoEmergencia : Tiene 
-Soldado "1" -- "*" Labor : Realiza >
+Soldado "1" -- "*" Labor : Realiza 
 Soldado "1" -- "*" Actividad : Participa 
 Soldado "1" -- "*" RegistroSalud : Tiene 
-ElementoMilitar "1" -- "*" Soldado : Dirigido por 
+ElementoMilitar "1" -- "*" Soldado : Dirigido 
 Rango "1" -- "*" Soldado : Asignado  
-Rango "1" -- "1" CuerpoMilitar : Pertenece a 
+Rango "1" -- "1" CuerpoMilitar : Pertenece  
 CuerpoMilitar "1" -- "*" Rango : Contiene 
 CuerpoMilitar "1" -- "*" Soldado : Contiene 
 Soldado "1" -- "1" DocumentoIdentidad : Tiene 
@@ -223,8 +221,8 @@ ProgramaEntrenamiento "1" -- "*" Actividad : Contiene
 Actividad "1" -- "*" Insumo : Requiere 
 Actividad "1" -- "*" Soldado : Participa 
 Insumo "1" -- "*" ControlInventario : Registrado en 
-Insumo "1" -- "*" RegistroEntregaInsumo : Entregado en 
-RegistroEntregaInsumo "1" -- "1" Soldado : Entregado a 
+Insumo "1" -- "*" RegistroEntregaInsumo : Entregado 
+RegistroEntregaInsumo "1" -- "1" Soldado : Entregado a
 RegistroEntregaInsumo "1" -- "1" Actividad:Para 
 Cuartel "1" -- "*" ElementoMilitar : Aloja
 ComponenteMilitar"1" --"*"ElementoMilitar :Tiene

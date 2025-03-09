@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package MariaLeon.base;
 
 import java.util.Date;
@@ -11,9 +8,8 @@ import java.util.List;
  *
  * @author Maria liz
  */
-public class Soldado {
+public class Soldado extends DocumentoIdentidad {
     private String nombre;
-     private DocumentoIdentidad documentoIdentidad;
     private String codigoMilitar;
     private Date fechaIngreso;
     private String oficioInicial;
@@ -36,8 +32,11 @@ public class Soldado {
         
     }
 
-    public Soldado(DocumentoIdentidad documentoIdentidad, String codigoMilitar, Date fechaIngreso, String oficioInicial, String apellido, Date fechaNacimiento, int edad, String genero,String nombre, double alturaInicial, double pesoInicial, String direccion, String telefono, String email, Rango rango, CuerpoMilitar cuerpoMilitar, Soldado superior, List<ContactoEmergencia> contactosEmergencia, List<Labor> labores, List<Actividad> listaActividades) {
-        this.documentoIdentidad = documentoIdentidad;
+   
+
+    public Soldado(String nombre, String codigoMilitar, Date fechaIngreso, String oficioInicial, String apellido, Date fechaNacimiento, int edad, String genero, double alturaInicial, double pesoInicial, String direccion, String telefono, String email, Rango rango, CuerpoMilitar cuerpoMilitar, Soldado superior, List<ContactoEmergencia> contactosEmergencia, List<Labor> labores, List<Actividad> listaActividades, String numero, String tipo, Date fechaExpedicion, String lugarExpedicion, String tipoSangre) {
+        super(numero, tipo, fechaExpedicion, lugarExpedicion, tipoSangre);
+        this.nombre = nombre;
         this.codigoMilitar = codigoMilitar;
         this.fechaIngreso = fechaIngreso;
         this.oficioInicial = oficioInicial;
@@ -56,16 +55,12 @@ public class Soldado {
         this.contactosEmergencia = contactosEmergencia;
         this.labores = labores;
         this.listaActividades = listaActividades;
-        this.nombre=nombre;
     }
 
-    public DocumentoIdentidad getDocumentoIdentidad() {
-        return documentoIdentidad;
-    }
+   
+    
 
-    public void setDocumentoIdentidad(DocumentoIdentidad documentoIdentidad) {
-        this.documentoIdentidad = documentoIdentidad;
-    }
+
 
     public String getCodigoMilitar() {
         return codigoMilitar;
